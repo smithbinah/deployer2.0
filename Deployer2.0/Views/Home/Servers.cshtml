@@ -8,6 +8,6 @@
 
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
-@*<h4>@HtmlHelper.Raw(HtmlHelper.Encode(message).Replace("\n", "<br/>"))</h4>*@
+<h4>@Html.Raw(HttpUtility.HtmlAttributeEncode(Model.ToString()).Replace("\n", "<br/>"))</h4>
 
 
