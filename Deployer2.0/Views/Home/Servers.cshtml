@@ -3,11 +3,22 @@
 @{
     ViewBag.Title = "Servers";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 }
 
 <h2>@ViewBag.Title</h2>
+<br />
 <h3>@ViewBag.Message</h3>
-<h4>@Html.Raw(HttpUtility.HtmlAttributeEncode(Model.ToString()).Replace("\n", "<br/>"))</h4>
+<div>
+    <br />
+   @* <h4>@Html.Raw(HttpUtility.HtmlAttributeEncode(Model.ToString()).Replace("\n", "<br/>"))</h4>*@
 
-
+</div>
+@*@using (Html.BeginForm())
+    {
+        <button name="CreateContainerButton" value="ActionOne" class="button" style="width: 50px; height: 50px; ">
+            <img src="~/Resources/plusButton.png" style="width: inherit; height: inherit;" />
+        </button>
+    }*@
+@*@Html.ActionLink("Create Container", "../Container/CreationForm")*@
+<a class="btn btn-primary btn-lg" href="/Container/CreationForm">Create Container</a>

@@ -31,7 +31,7 @@ namespace Deployer2._0.Controllers
         }
         public ActionResult Servers()
         {
-            ViewBag.Message = "Under Development";
+            ViewBag.Message = "Under Development...";
             VirtualMachineModel testVirtualMachineModel = new VirtualMachineModel { Name="IIS Server", Description= "The Web server" , IPAddress = "10.0.88.55", CPUs = 2, Memory = 8, OperatingSystem = "Windows" };
             return View(testVirtualMachineModel);
         }
