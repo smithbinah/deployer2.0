@@ -1,0 +1,15 @@
+﻿@model Deployer2._0.Models.ContainerModel
+
+<html>
+<head>
+    <title> Container Form</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+    <p>Container Name: @Html.TextBoxFor(x => x.Name)</p>
+    <p>Container IP:   @Html.TextBoxFor(x => x.IPAddress)</p>
+    <input type="submit"value="Submit RSVP"/>
+    }
+</body>
+</html>
