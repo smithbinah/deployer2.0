@@ -1,15 +1,28 @@
 ﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
-        <img src="~/Resources/1375181369-250px.png" alt="Server Deployer Logo" height="50" width="50"/>
-    <a class="navbar-brand" href="~/Home/Index" >Server Deployer</a>
+    <img src="~/Resources/1375181369-250px.png" alt="Server Deployer Logo" height="50" width="50" />
+    <a class="navbar-brand" href="~/Home/Index">Server Deployer</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <script>
+        var btnContainer = document.getElementById("navbarItems");
 
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListner("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+
+    </script>
     <div class="collapse navbar-collapse" id="navbarColor01">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto" id="navbarItems">
 
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="~/Home/Index">
                     Dashboard
                 </a>
@@ -17,7 +30,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="~/Home/About">
+                <a class="nav-link " href="~/Home/About">
                     About
                 </a>
             </li>

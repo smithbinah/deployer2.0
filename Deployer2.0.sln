@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deployer2.0", "Deployer2.0\Deployer2.0.csproj", "{B0851928-D1EF-4EFB-9F07-52C2CB6014E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListVMs", "..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\vcenter\vm\list\ListVMs\ListVMs.csproj", "{8926A553-ECF9-45A5-B818-8472A52E14F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B0851928-D1EF-4EFB-9F07-52C2CB6014E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0851928-D1EF-4EFB-9F07-52C2CB6014E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0851928-D1EF-4EFB-9F07-52C2CB6014E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8926A553-ECF9-45A5-B818-8472A52E14F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -33,6 +33,8 @@ namespace Deployer2._0.Controllers
         {
             ViewBag.Message = "Under Development...";
             VirtualMachineModel testVirtualMachineModel = new VirtualMachineModel { Name="IIS Server", Description= "The Web server" , IPAddress = "10.0.88.55", CPUs = 2, Memory = 8, OperatingSystem = "Windows" };
+            List<VirtualMachineModel> virtualMachines = new List<VirtualMachineModel>();
+
             return View(testVirtualMachineModel);
         }
     }
