@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Deployer2._0.AspNetUser>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users</title>
+</head>
+<body>
+    <div> 
+        <table>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        @user.UserName
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

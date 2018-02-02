@@ -1,0 +1,20 @@
+﻿@model Deployer2._0.Models.VirtualMachineListModel
+
+<html>
+<head>
+    <title>The Server List </title>
+</head>
+<body>
+    <table>
+    @foreach (var vm in Model.VMs)
+    {
+        <tr>
+            <td>
+                @vm.GetName()
+            </td>
+        </tr>
+    }
+    </table>
+</body>
+</html>
+

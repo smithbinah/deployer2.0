@@ -1,0 +1,41 @@
+﻿@model Deployer2._0.Models.VirtualMachineModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreationForm</title>
+</head>
+<body align="center">
+    <div class="wrapper">
+        <header class="header">
+            <strong>Server Request Form</strong>
+        </header>
+        <div class="middle">
+            <div class="container">
+                <main class="content">
+                    <strong></strong> 
+                </main><!-- .content -->
+            </div><!-- .container-->
+            <aside class="right-sidebar">
+                <strong></strong>
+            </aside><!-- .right-sidebar -->
+        </div>
+    </div>
+
+    <div align="center" class="float-lg-right">
+        @using (Html.BeginForm())
+            {
+            <p>Virtual Machine Name: @Html.TextBoxFor(x => x.Name)</p>
+                <p>Virtual Machine IP:   @Html.TextBoxFor(x => x.IPAddress)</p>
+                <p>Virtual Machine Description: @Html.TextBoxFor(x => x.Description)</p>
+                <p>Virtual Machine Memory(GB):   @Html.TextBoxFor(x => x.Memory)</p>
+                <p>Virtual Machine OS:   @Html.TextBoxFor(x => x.OperatingSystem)</p>
+                <p>Virtual Machine CPU(s): @Html.TextBoxFor(x => x.CPUs)</p>
+                <input type="submit" value="Submit Request" />
+        }
+    </div>
+</body>
+</html>
+

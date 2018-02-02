@@ -5,6 +5,7 @@ using System.Web;
 using System.Drawing;
 using System.IO;
 
+
 namespace Deployer2._0.Models
 {
     public class VirtualMachineModel
@@ -29,5 +30,6 @@ namespace Deployer2._0.Models
                 "\nCPUs: " + CPUs
                 ;
         }
+        
     }
 }
