@@ -1,12 +1,12 @@
 ﻿@model Deployer2._0.Models.VirtualMachineListModel
-
+@using vmware.vcenter;
 <html>
 <head>
     <title>The Server List </title>
 </head>
 <body>
     <table>
-    @foreach (var vm in Model.VMs)
+    @foreach (VMTypes.Summary vm in Model.vmList)
     {
         <tr>
             <td>

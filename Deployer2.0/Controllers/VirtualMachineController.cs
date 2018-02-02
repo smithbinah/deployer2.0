@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Deployer2._0.Models;
-using vmware.samples.vcenter.vm.list;
+
 
 
 namespace Deployer2._0.Controllers

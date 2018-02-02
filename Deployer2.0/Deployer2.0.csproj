@@ -46,10 +46,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommandLine, Version=1.9.71.2, Culture=neutral, PublicKeyToken=de6f01bd326f8c32, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\CommandLine.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -57,10 +53,6 @@
     <Reference Include="SamplesCommon, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\SamplesCommon.dll</HintPath>
-    </Reference>
-    <Reference Include="STSService, Version=6.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\STSService.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -127,18 +119,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\vapi-client-bindings.dll</HintPath>
     </Reference>
-    <Reference Include="vapi-runtime, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\vapi-runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Vim25Service, Version=6.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\Vim25Service.dll</HintPath>
-    </Reference>
-    <Reference Include="vsphereautomation-lookupservice, Version=6.6.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\common\SamplesCommon\bin\Debug\vsphereautomation-lookupservice.dll</HintPath>
-    </Reference>
+    <Reference Include="vapi-runtime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -401,12 +382,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master\vmware\samples\vcenter\vm\list\ListVMs\ListVMs.csproj">
-      <Project>{8926a553-ecf9-45a5-b818-8472a52e14f1}</Project>
-      <Name>ListVMs</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
