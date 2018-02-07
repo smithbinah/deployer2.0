@@ -29,15 +29,14 @@ namespace Deployer2._0.Controllers
         }
         public ViewResult Users()
         {
-            Console.WriteLine("in");
+            
             DeployerEntities3 deployerEntities3 = new DeployerEntities3();
             return View(from customer in deployerEntities3.AspNetUsers.Take(10) select customer);
         }
         public ViewResult showServers()
         {
-
-            VirtualMachineListModel virtualMachineListModel = new VirtualMachineListModel();
-            return View();
+            
+            return View(new VirtualMachineListModel());
         }
     }
 }

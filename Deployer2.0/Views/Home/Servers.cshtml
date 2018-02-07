@@ -1,8 +1,11 @@
 ﻿@model Deployer2._0.Models.VirtualMachineModel
+@using Deployer2._0.Models;
+@using vmware.vcenter;
 
 @{
     ViewBag.Title = "Servers";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    
 
 }
 
@@ -13,6 +16,23 @@
     <br />
    @* <h4>@Html.Raw(HttpUtility.HtmlAttributeEncode(Model.ToString()).Replace("\n", "<br/>"))</h4>*@
 
+</div>
+<p><a href="~/AsyncForm.aspx" target="_blank" class="btn btn-primary btn-lg">Generate List &raquo;</a></p>
+
+<div>
+    <table>
+        @{
+            foreach (VMTypes.Summary vmSummary in VMInformation.VirtualMachineList)
+            {
+                <tr>
+                    <td>
+                        @vmSummary.GetName()
+                        @Model.Name
+                    </td>
+                </tr>
+            }
+        }
+    </table>
 </div>
 @*@using (Html.BeginForm())
     {

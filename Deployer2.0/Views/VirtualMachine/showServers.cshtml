@@ -1,19 +1,23 @@
 ﻿@model Deployer2._0.Models.VirtualMachineListModel
 @using vmware.vcenter;
+@using Deployer2._0.Models;
 <html>
 <head>
     <title>The Server List </title>
 </head>
 <body>
     <table>
-    @foreach (VMTypes.Summary vm in Model.vmList)
-    {
         <tr>
-            <td>
-                @vm.GetName()
-            </td>
+            
+            @foreach (VMTypes.Summary vm in VMInformation.VirtualMachineList)
+            {
+
+                <td>
+                    @vm
+                </td>
+
+            }
         </tr>
-    }
     </table>
 </body>
 </html>
