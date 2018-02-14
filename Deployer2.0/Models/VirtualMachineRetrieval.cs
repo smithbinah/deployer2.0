@@ -55,6 +55,9 @@ namespace Deployer2._0.Models
             
         }
 
-        
+        public override Task<string> Run(string a)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

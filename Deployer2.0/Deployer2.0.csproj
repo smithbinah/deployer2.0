@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CreateExhaustiveVm">
+      <HintPath>..\..\..\..\..\..\..\vsphere-automation-sdk-.net-master - Copy\vmware\samples\vcenter\vm\create\CreateExhaustiveVm\bin\Debug\CreateExhaustiveVm.dll</HintPath>
+    </Reference>
     <Reference Include="ListVMs">
       <HintPath>..\packages\VMWare(personal)\ListVMs.dll</HintPath>
     </Reference>
@@ -263,9 +266,16 @@
     <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="ListVirtualMachines.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClusterHelper.cs" />
     <Compile Include="Models\ContainerModel.cs" />
+    <Compile Include="Models\DatacenterHelper.cs" />
+    <Compile Include="Models\DatastoreHelper.cs" />
+    <Compile Include="Models\FolderHelper.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NetworkHelper.cs" />
+    <Compile Include="Models\PlacementHelper.cs" />
+    <Compile Include="Models\VirtualMachineCreation.cs" />
     <Compile Include="Models\VirtualMachineListModel.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -285,6 +295,13 @@
     <Compile Include="VM.cs">
       <DependentUpon>DeployerProjectDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VMCreationRequest.aspx.cs">
+      <DependentUpon>VMCreationRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VMCreationRequest.aspx.designer.cs">
+      <DependentUpon>VMCreationRequest.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AsyncForm.aspx" />
@@ -293,6 +310,7 @@
     <Content Include="Content\bootstrap-def.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\sb-admin.css" />
+    <Content Include="Content\serverNavStyle.css" />
     <Content Include="Content\skel-noscript.css" />
     <Content Include="Content\style-1000px.css" />
     <Content Include="Content\style-desktop.css" />
@@ -342,6 +360,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\skel-panels.min.js" />
     <Content Include="Scripts\skel.min.js" />
+    <Content Include="VMCreationRequest.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -388,6 +407,12 @@
     <Content Include="Views\VirtualMachine\Thanks.cshtml" />
     <Content Include="Views\VirtualMachine\Users.cshtml" />
     <Content Include="Views\VirtualMachine\showServers.cshtml" />
+    <Content Include="Views\Partials\_ServerNav.cshtml" />
+    <Content Include="Views\Partials\_ServerContent.cshtml" />
+    <Content Include="Views\VirtualMachine\Analytics.cshtml" />
+    <Content Include="Views\VirtualMachine\VMs.cshtml" />
+    <Content Include="Views\VirtualMachine\Containers.cshtml" />
+    <Content Include="Views\VirtualMachine\Environment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Server DEployer Website</title>
     @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/serverNavStyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/bootstrap.css"/>
     @Scripts.Render("~/bundles/modernizr")
 
@@ -14,8 +15,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Server Deployer Website</p>
+        <footer class="content">
+            <p >&copy; @DateTime.Now.Year - Server Deployer Website</p>
         </footer>
     </div>
 

@@ -1,47 +1,33 @@
 ﻿@model Deployer2._0.Models.VirtualMachineModel
 @using Deployer2._0.Models;
-@using vmware.vcenter;
+
 
 @{
     ViewBag.Title = "Servers";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
+
 
 }
-
-<h2>@ViewBag.Title</h2>
-<br />
-<h3>@ViewBag.Message</h3>
-<div>
+<link href="~/Content/serverNavStyle.css" rel="stylesheet" />
+<div class="content">
+    <h2>@ViewBag.Title</h2>
     <br />
-   @* <h4>@Html.Raw(HttpUtility.HtmlAttributeEncode(Model.ToString()).Replace("\n", "<br/>"))</h4>*@
+    <h3>@ViewBag.Message</h3>
 
+    <div>
+        @{Html.RenderPartial("~/Views/Partials/_ServerContent.cshtml"); }
+    </div>
+    <div>
+        @{Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");}
+    </div>
 </div>
-<p><a href="~/AsyncForm.aspx" target="_blank" class="btn btn-primary btn-lg">Generate List &raquo;</a></p>
 
-<div>
-    <table>
-        @{
-            foreach (VMTypes.Summary vmSummary in VMInformation.VirtualMachineList)
-            {
-                <tr>
-                    <td>
-                        @vmSummary.GetName()
-                        @Model.Name
-                    </td>
-                </tr>
-            }
-        }
-    </table>
-</div>
-@*@using (Html.BeginForm())
-    {
-        <button name="CreateContainerButton" value="ActionOne" class="button" style="width: 50px; height: 50px; ">
-            <img src="~/Resources/plusButton.png" style="width: inherit; height: inherit;" />
-        </button>
-    }*@
-@*@Html.ActionLink("Create Container", "../Container/CreationForm")*@
-<div class="row">
-    <a class="btn btn-primary btn-lg" href="/Container/CreationForm">Create Container</a>
-    <a class="btn btn-primary btn-lg" href="/VirtualMachine/CreationForm">Create Virtual Machine</a>
-</div>
+           
+   
+
+
+
+
+
+
+

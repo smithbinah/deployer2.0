@@ -8,6 +8,7 @@ namespace Deployer2._0.Models
 {
     public static class VMInformation
     {
+        public static int partialIndex = 0;
         public static List<VMTypes.Summary> VirtualMachineList = new List<VMTypes.Summary>();
 
     }

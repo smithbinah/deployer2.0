@@ -5,6 +5,7 @@ using System.Web;
 using Deployer2._0.Models;
 using vmware.samples.common;
 using System.Web.UI.WebControls;
+using System.Threading.Tasks;
 
 namespace Deployer2._0
 {
@@ -26,6 +27,11 @@ public override void Run()
         public override void Cleanup()
         {
             
+        }
+
+        public override Task<string> Run(string a)
+        {
+            throw new NotImplementedException();
         }
     }
 }
