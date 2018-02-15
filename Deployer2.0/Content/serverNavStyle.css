@@ -1,0 +1,38 @@
+﻿@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+body {
+     margin-top: 20px;
+    
+}
+.sidenav {
+    height: 100%;
+    width: 10em;
+    position: fixed;
+    z-index: 1;
+    top: 52px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 2s;
+    float: left;
+}
+.sidenav-main {
+    height: 100%;
+    width: 10em;
+    position: fixed;
+    z-index: 1;
+    top: 52px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 2s;
+    float: left;
+}
+
+.fa-fw {width: 2em;}
+.content {
+    width: auto;
+    margin-left: 12%;
+    /*padding-left: 0;*/
+}
