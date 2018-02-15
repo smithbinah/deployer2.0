@@ -326,6 +326,17 @@
       <DependentUpon>DeployerProjectDataModel.edmx</DependentUpon>
       <LastGenOutput>DeployerProjectDataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="ExhaustiveVm\CommandLine.dll" />
+    <Content Include="ExhaustiveVm\CommandLine.xml" />
+    <Content Include="ExhaustiveVm\CreateExhaustiveVm.pdb" />
+    <Content Include="ExhaustiveVm\CreateExhaustiveVm.vshost.exe" />
+    <Content Include="ExhaustiveVm\SamplesCommon.dll" />
+    <Content Include="ExhaustiveVm\SamplesCommon.pdb" />
+    <Content Include="ExhaustiveVm\STSService.dll" />
+    <Content Include="ExhaustiveVm\vapi-client-bindings.dll" />
+    <Content Include="ExhaustiveVm\vapi-runtime.dll" />
+    <Content Include="ExhaustiveVm\Vim25Service.dll" />
+    <Content Include="ExhaustiveVm\vsphereautomation-lookupservice.dll" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -344,6 +355,7 @@
     <Content Include="DeployerProjectDataModel.edmx.diagram">
       <DependentUpon>DeployerProjectDataModel.edmx</DependentUpon>
     </Content>
+    <Content Include="ExhaustiveVm\CreateExhaustiveVm.vshost.exe.manifest" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\html5shiv.js" />
