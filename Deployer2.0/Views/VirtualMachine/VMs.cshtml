@@ -1,8 +1,14 @@
 ﻿<h3>@ViewBag.Title</h3> 
 @{
     Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");
+
+    
+
     <div>
-        <a class="btn btn-primary btn-lg" href="~/VMCreationRequest.aspx">Create Virtual Machine</a>
+        <a class="btn btn-primary btn-lg" href="../VirtualMachine/VMForm">Create Virtual Machine</a>
+        <p>
+            @ViewBag.test
+        </p>
     </div>
 
 }

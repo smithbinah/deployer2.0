@@ -1,6 +1,47 @@
-﻿<h3>@ViewBag.Title</h3> 
-@{
-    Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");
+﻿@using Deployer2._0.Resources.APIResources;
+<h3>@ViewBag.Title</h3>
+
+<nav>
+    @{
+
+        Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");
+
+        var content = ViewBag.Content;
+    }
+</nav>
+<br />
+<br />
+<div class="list-group">
+
+   
+   
+    <h4>Over Due Issues:</h4>
+    
+    <table class="table table-hover">
+        <tbody>
 
 
-}
+            @{
+                bool isActive = true;
+
+                foreach (Issue item in ViewBag.OverDue)
+                {
+                    string toggleActive = (isActive) ? "active" : "";
+                    <tr class="list-group-item list-group-item-action flex-column align-items-start @toggleActive">
+                        <th class="align-content-center">Status: @item.fields.status.name</th>
+                        <td class="align-content-center">Issue key: @item.key</td>
+                    </tr>
+
+                    isActive = !isActive;
+
+
+
+                }
+
+            }
+        </tbody>
+    </table>
+    <br />
+
+    <h3><span> @ViewBag.Progress @ViewBag.TotalIssues</span> </h3>
+</div>

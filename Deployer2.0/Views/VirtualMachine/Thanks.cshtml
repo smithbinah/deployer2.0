@@ -1,7 +1,22 @@
-﻿@model Deployer2._0.Models.VirtualMachineModel
+﻿@model Deployer2._0.Models.VMModel
+@using System.Management.Automation
 
 @{
     ViewBag.Title = "Thanks";
 }
-
-<h2>Thanks, please wait while your "@Model.Name" environment is created!</h2>
+<head>
+    <title>Thank you</title>
+    @*<meta http-equiv="refresh" content="5;url=../Home/Servers"/>*@
+</head>
+<h1>
+    @ViewBag.escapedLink
+</h1>
+<h2>Thanks, please wait while your "@Model.Name" environment is being created!</h2>
+<br/>
+<h3>Creation times can range from 5 to 10 minutes depending on configurations.</h3>
+@{ 
+    foreach (ErrorRecord item in ViewBag.errors)
+    {
+        <p>item</p>
+    }
+}

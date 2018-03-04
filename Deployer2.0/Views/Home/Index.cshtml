@@ -1,11 +1,30 @@
-﻿@{
+﻿@using System.Linq
+@using System.Text.RegularExpressions
+@{
+    
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>User Dashboard</h1>
-    <p class="lead">Still under development...</p>
-    <p><a href="~/AsyncForm.aspx" target="_blank" class="btn btn-primary btn-lg">Test Dev page &raquo;</a></p>
+    
+    <p class="lead"></p>
+    
+         @{
+             string visitor =
+             (HttpContext.Current.User.Identity.IsAuthenticated) ?
+         HttpContext.Current.User.Identity.Name : "Visitor";
+             string[] result =
+            Regex.Matches(visitor, @"(^\w+)").Cast<Match>().Select(m => m.Value).ToArray();
+             visitor = result[0];
+        }
+    <h1>
+        Welcome @visitor
+    </h1>
+    <br />
+    <p>
+        To start deploying servers login, and navigate to the "Servers" section
+    </p>
+    @*<p><a href="~/AsyncForm.aspx" target="_blank" class="btn btn-primary btn-lg">Test Dev page &raquo;</a></p>*@
 
 </div>
 

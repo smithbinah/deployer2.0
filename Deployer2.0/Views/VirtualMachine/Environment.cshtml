@@ -1,6 +1,67 @@
-﻿<h3>@ViewBag.Title</h3> 
+﻿@using Deployer2._0.Models.PowerCLIHelper;
+@using vmware.vcenter;
+@using Deployer2._0.Resources.APIResources;
+@using System.Collections.ObjectModel;
+@using System.Management.Automation;
+
+
+
+
+
+
+
+<h3>@ViewBag.Title</h3>
 @{
     Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");
 
 
 }
+<script>
+    function reload() {
+        location.reload();
+    }
+</script>
+
+<div class="content list-group">
+
+
+
+</div>
+<div class="panel-group ">
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <h3 class="panel-title">
+                <a class="btn btn-outline-primary" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    Virtual Machine Environment Information
+                </a>
+            </h3>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="row">
+                    @{
+                        foreach (EnvironmentVM item in ViewBag.vmlist)
+                        {
+                            <div class="card text-white bg-primary mb-3 col-sm-4" style="max-width: 20rem; margin: 10px;">
+                                <div class="card-header">@item.Name</div>
+                                <div class="card-body">
+
+                                    @{
+                                        <p>@item.Host</p>
+                                        <p>@item.Guest</p>
+                                        <p>@item.Memory</p>
+                                        <p>@item.PowerState</p>
+                                        <p>@item.Cores</p>
+                                        <p>@item.CPUNum</p>
+                                    }
+                                </div>
+                            </div>
+                                        
+                    }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

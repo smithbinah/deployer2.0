@@ -1,0 +1,36 @@
+﻿@model Deployer2._0.Models.VMModel
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>VMForm</title>
+    
+</head>
+<body>
+    <h3>Virtual Machine Creation Form</h3>
+    <br/>
+
+    <div> 
+        
+        @using (Html.BeginForm())
+        {
+            <p>Enter Name:        @Html.TextBoxFor(x => x.Name)</p>
+            <p>Enter Description: @Html.TextBoxFor(x => x.Description)</p>
+            <p>Enter Memory:      @Html.TextBoxFor(x => x.Memory)</p>
+            <p>Enter CPUs:        @Html.TextBoxFor(x => x.CPUs)</p>
+            <p>Enter DiskSize:    @Html.TextBoxFor(x => x.DiskSize)</p>
+            <p>
+                Submit when ready!
+
+            </p>
+            <input type="submit" value="Submit VM Request" />
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿@model Deployer2._0.Models.ContainerModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ContainerForm</title>
+</head>
+<body>
+    <aside >
+
+    </aside>
+    <div> 
+        @using (Html.BeginForm())
+        {
+            <p class="align-content-end">Enter Name:        @Html.TextBoxFor(x => x.Name)</p>
+            <p class="align-content-end">Enter Description: @Html.TextBoxFor(x => x.Distro)</p>
+            <p class="align-content-end">Enter Memory:      @Html.TextBoxFor(x => x.IPAddress)</p>
+            
+            <p>
+                Submit when ready!
+
+            </p>
+            <input type="submit" value="Submit VM Request" />
+        }
+    </div>
+
+</body>
+</html>

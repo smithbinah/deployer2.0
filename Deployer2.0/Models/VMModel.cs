@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Drawing;
-using System.IO;
-
 
 namespace Deployer2._0.Models
 {
-    public class VirtualMachineModel
+    public class VMModel
     {
-        
         public string Name { get; set; }
         public string Description { get; set; }
         public string IPAddress { get; set; }
@@ -18,11 +14,12 @@ namespace Deployer2._0.Models
         public int Memory { get; set; }
         public int CPUs { get; set; }
         public int DiskSize { get; set; }
+        public int token { get; set; }
 
 
         public override string ToString()
         {
-            return 
+            return
                 "Name: " + Name +
                 "\nDescription: " + Description +
                 "\nIP: " + IPAddress +
@@ -31,6 +28,5 @@ namespace Deployer2._0.Models
                 "\nCPUs: " + CPUs
                 ;
         }
-        
     }
 }

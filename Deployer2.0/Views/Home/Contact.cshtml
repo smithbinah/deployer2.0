@@ -1,7 +1,51 @@
 ﻿@{
-    ViewBag.Title = "Contact Server Deployer at...";
+    ViewBag.Title = "Server Deployer FAQ";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
+<div class="panel-group ">
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <h3 class="panel-title">
+                <a class="btn btn-outline-info" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    How do i deploy a VM?
+                </a>
+            </h3>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>To deploy a VM navigate to Servers > VMs, and click the button "deploy VM".</p>
+                </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+    <div class="panel-heading ">
+        <h3 class="panel-title">
+            <a class="btn btn-outline-info" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                How do i Deploy a container?
+            </a>
+        </h3>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>To deploy a container navigate to Servers > Containers, and click the button "deploy container".</p>
+        </div>
+    </div>
+</div>
+    <div class="panel panel-default">
+        <div class="panel-heading ">
+            <h3 class="panel-title">
+                <a class="btn btn-outline-info" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    How do i check my Environment?
+                </a>
+            </h3>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>To check your environment navigate to Servers > Environment and Click the "Environment" button, to generate a list.</p>
+            </div>
+        </div>
+    </div>
+</div>
 @*<h3>@ViewBag.Message</h3>
 
 <address>

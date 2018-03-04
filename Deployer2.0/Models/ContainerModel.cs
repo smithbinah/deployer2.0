@@ -9,5 +9,7 @@ namespace Deployer2._0.Models
     {
         public string IPAddress { get; set; }
         public string Name { get; set; }
+        public string Distro { get; set; }
+
     }
 }

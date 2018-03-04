@@ -5,16 +5,17 @@ body {
 }
 .sidenav {
     height: 100%;
-    width: 10em;
+    width: auto;
     position: fixed;
     z-index: 1;
-    top: 52px;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 60px;
+    top: 55px;
+    left: 0px;
+    /*background-color: #111;*/
+    padding-top: 80px;
+    padding-right: 80px;
     transition: 2s;
     float: left;
+    align-content: center;
 }
 .sidenav-main {
     height: 100%;
@@ -25,7 +26,7 @@ body {
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 60px;
+    padding-top: 710px;
     transition: 2s;
     float: left;
 }
@@ -35,4 +36,9 @@ body {
     width: auto;
     margin-left: 12%;
     /*padding-left: 0;*/
+}
+.sideButtons{
+    /*align-content:center;*/
+    margin:10px;
+    width:auto;
 }

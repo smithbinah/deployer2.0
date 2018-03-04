@@ -1,35 +1,22 @@
 ﻿@using Deployer2._0.Models;
 @using vmware.vcenter;
+@using System.Management.Automation;
+<head>
+    <meta http-equiv="refresh" content="5" />
 
-<p><a href="~/AsyncForm.aspx" target="_blank" class="btn btn-primary btn-lg">Generate List &raquo;</a></p>
-<link href="~/Content/serverNavStyle.css" rel="stylesheet" />
-
-@*<div class="content">
-    <div class="row">
-        <a class="btn btn-primary btn-lg" href="/Container/CreationForm">Create Container</a>
-        <a class="btn btn-primary btn-lg" href="/VirtualMachine/CreationForm">Create Virtual Machine</a>
-    </div>*@
-    <table>
-        @{
-            foreach (VMTypes.Summary vmSummary in VMInformation.VirtualMachineList)
-            {
-                <tr>
-                    <td>
-                        @vmSummary.GetName()
-                        @Model.Name
-                    </td>
-                </tr>
-            }
-        }
-    </table>
-</div>
-
-@using (Html.BeginForm())
-{
-    <a class="btn btn-primary btn-lg" href="/VirtualMachine/CreationForm">Create Virtualk Machine</a>
-            @*<img src="~/Resources/plusButton.png" style="width: inherit; height: inherit;" />*@
-        
+</head>
+<script>
+    function reload() {
+        location.reload();
     }
-@*@Html.ActionLink("Create Container", "../Container/CreationForm")*@
+</script>
+<body>
+    <div>
+        @*<p>
+            For Information about how to deploy servers or containers please refer to the FAQ Section of the website
+        </p>*@
+    </div>
+    
 
+</body>
 

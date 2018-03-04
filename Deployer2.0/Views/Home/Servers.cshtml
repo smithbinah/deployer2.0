@@ -1,5 +1,6 @@
 ﻿@model Deployer2._0.Models.VirtualMachineModel
 @using Deployer2._0.Models;
+@using System.Management.Automation;
 
 
 @{
@@ -12,13 +13,31 @@
 <div class="content">
     <h2>@ViewBag.Title</h2>
     <br />
-    <h3>@ViewBag.Message</h3>
+   
 
     <div>
         @{Html.RenderPartial("~/Views/Partials/_ServerContent.cshtml"); }
     </div>
     <div>
         @{Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");}
+    </div>
+    <div class="content list-group">
+
+        <a onclick="reload()" class="btn btn-primary btn-lg">Environment List&raquo;</a>
+
+        @{
+            foreach (PSObject listItem in ViewBag.vmlist)
+            {
+                <div class="list-group-item">
+                    @listItem.ToString()
+                </div>
+
+
+
+            }
+        }
+        @*<p>@ViewBag.test</p>*@
+
     </div>
 </div>
 

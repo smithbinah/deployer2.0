@@ -1,4 +1,6 @@
 ﻿using Deployer2._0.Models;
+using Deployer2._0.Models.PowerCLIHelper;
+using Deployer2._0.Resources.APIResources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,20 +20,21 @@ namespace Deployer2._0.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Administrator")]
+        
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Simple Server Deployer Description ...";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact us at ...";
 
             return View();
         }
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult> Servers()
         {
@@ -40,6 +43,11 @@ namespace Deployer2._0.Controllers
             VirtualMachineModel testVirtualMachineModel = new VirtualMachineModel { Name="IIS Server", Description= "The Web server" , IPAddress = "10.0.88.55", CPUs = 2, Memory = 8, OperatingSystem = "Windows" };
             List<VirtualMachineModel> virtualMachines = new List<VirtualMachineModel>();
             //await Task.Factory.StartNew(() => { Thread.Sleep(3000); });
+            VirtualMachineAPIController virtualMachineAPIController = new VirtualMachineAPIController();
+            ViewBag.test = virtualMachineAPIController.Login("blah");
+            VMWare vmScript = new VMWare();
+            var VMList = vmScript.Login();
+            ViewBag.vmlist = VMList;
             return View(testVirtualMachineModel);
         }
         

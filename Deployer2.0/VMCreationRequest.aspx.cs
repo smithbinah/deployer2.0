@@ -23,6 +23,7 @@ namespace Deployer2._0
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            #region VMC
             //VirtualMachineCreation vmc = new VirtualMachineCreation(VMNameSubmission.Text.ToString(), nameLabel);
             //nameLabel.Text = VMNameSubmission.Text.ToString() + " is being created";
             //vmc.Run();
@@ -33,6 +34,7 @@ namespace Deployer2._0
             //processStartInfo.Arguments = "ipconfig";
             //string str = System.IO.Path.GetFullPath("CreateExhaustiveVM.exe");
             //Process.Start("cmd.exe", "/k echo Your Location: " + str );
+#endregion
             string link = HttpContext.Current.Server.MapPath("~/ExhaustiveVm/CreateExhaustiveVm.exe");
             string escapedLink = "\"" + link + "\"";
             Process.Start("cmd.exe", "/k"+ escapedLink+ " --server 10.0.88.11 --username administrator@vsphere.local --password Nu140859246! --skip-server-verification --cleardata --datacenter Datacenter --cluster VSANCluster --vmfolder APIVMs --datastore vsanDatastore --standardportgroup APINetwork --distributedportgroup API(DPG) --isodatastorepath [vsanDatastore] ISOImages");
