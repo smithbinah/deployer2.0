@@ -1,14 +1,166 @@
-﻿<h3>@ViewBag.Title</h3> 
-@{
-    Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");
+﻿@model  Deployer2._0.Models.VMSuperModel
+@using Deployer2._0.Models;
+<script>
+    function toggleVisibility() {
+        var x = document.getElementById("ftpForm");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    } 
 
-    
+    function checkInput() {
+        var x = document.getElementById("ftpForm");
 
-    <div>
-        <a class="btn btn-primary btn-lg" href="../VirtualMachine/VMForm">Create Virtual Machine</a>
-        <p>
-            @ViewBag.test
-        </p>
+    }
+    function toggleVisibilityWeb() {
+        var x = document.getElementById("webForm");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    function toggleVisibilityDB() {
+        var x = document.getElementById("DBForm");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        function appendStatus() {
+            var node = document.createElement("div");                 
+            //var textnode = document.createTextNode("Water"); 
+            node.className = "alert alert-dismissible alert-success"
+            var button = document.createElement("button");
+            button.type = "button"
+            button.className = "close"
+            
+            node.appendChild(button);                             
+            document.getElementById("alerts").appendChild(node);
+        }
+    }
+</script>
+@*<div style="border-right:1px solid #000;height:auto">*@
+    <h3>@ViewBag.Title</h3>
+    @{
+        Html.RenderPartial("~/Views/Partials/_ServerNav.cshtml");
+        bool Isvisible = false;
+        string visibility = (Isvisible) ? "visible" : "invisible";
+
+    }
+
+    <div class="jumbotron">
+        <h3 class="align-content-center display-4" style="text-align:center;">Custom Virtual Machine</h3>
+            @using (Html.BeginForm("CustomVM", "Member", FormMethod.Post, new { }))
+            {
+                <div class="form-group centered">
+                    <p class="mb-2 col-sm-2">Enter Name:       <div class=" form-control-sm">@Html.TextBoxFor(x => x.Name)</div></p>
+                    <p class="mb-2 col-sm-2">Enter Memory (GB):     <div class=" form-control-sm"> @Html.TextBoxFor(x => x.Memory)</div></p>
+                    <p class="mb-2 col-sm-2">Enter Number of CPUs (GB):      <div class=" form-control-sm"> @Html.TextBoxFor(x => x.CPUNum)</div></p>
+                    <p class="mb-2 col-sm-2">Enter Disk Size (GB):      <div class=" form-control-sm"> @Html.TextBoxFor(x => x.DiskSize)</div></p>
+
+                    <p class="mb-2 col-sm-2">Select OS:    @Html.DropDownListFor(x => x.OperatingSystem,
+                        new SelectList(Enum.GetValues(typeof(OS))),"Select Operating System")</p>
+
+                    <input type="submit" class="btn btn-primary" value="Submit VM Request" formaction="CustomVM"/>
+                </div>
+
+            }
+
+        @*<a class="btn btn-primary btn-lg" href="../VirtualMachine/VMForm">Create Virtual Machine</a>*@
     </div>
+    <hr width="100%" />
+    <div class="jumbotron">
+        <h3 class="align-content-center display-4" style="text-align:center;">Presets</h3>
+        <div class="row">
+            <div class="card border-info mb-3" style="max-width: 20rem; margin: 10px;">
+                <div class="card-header">FTP Server</div>
+                <div class="card-body">
+                    <h4 class="card-title">FTP</h4>
+                    <p class="card-text">This VM comes default with an FTP Server preconfigured. The FTP server will utilize the latest version available on default repositories.</p>
+                    <input onclick="toggleVisibility()" value="Deploy" type="button" title="Deploy" id="ftpExpand" class="btn btn-outline-success align-bottom" href="#" style="position: relative; bottom: 0;"/>
+                    @ViewBag.test
+                    <div id="ftpForm" class="col form-group" style="display: none">
+                        @using (Html.BeginForm("ftp", "Member", FormMethod.Post, new { }))
+                        {
+                            <div class="input-group input-group">
+                                <p>Enter Name:        @Html.TextBoxFor(x => x.Name)</p>
+                                
+                                <input type="submit" class="btn btn-primary" value="Submit VM Request" formaction="ftp" />
+                            </div>
+                            
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="card border-info mb-3" style="max-width: 20rem; margin: 10px;">
+                <div class="card-header">Apache Web Server</div>
+                <div class="card-body">
+                    <h4 class="card-title">Web Server</h4>
+                    <p class="card-text">The Web Server VM comes preconfigured with a default apache server installed on a Linux CentOS Distribution.</p>
+                    
+                    <input onclick="toggleVisibilityWeb()" value="Deploy" type="button" title="Deploy" id="webExpand" class="btn btn-outline-success align-bottom" href="#" style="position: relative; bottom: 0;" />
+                    <div id="webForm" class="col form-group" style="display: none">
+                        @using (Html.BeginForm("web", "Member", FormMethod.Post, new { }))
+                        {
+                            <div class="input-group input-group">
+                                <p>Enter Name:        @Html.TextBoxFor(x => x.Name)</p>
+                                @*<p class="form-control">Select OS:    @Html.DropDownListFor(x => x.OperatingSystem,
+                    new SelectList(Enum.GetValues(typeof(OS))),"Select Operating System")</p>*@
 
-}
+                                <input type="submit" class="btn btn-primary" value="Submit VM Request" formaction="web" />
+                            </div>
+
+                        }
+                        @*<div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow=@VMInformation.DeploymentProgress.ToString() aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+                        </div>*@
+                    </div>
+
+                </div>
+            </div>
+            <div class="card border-info mb-3" style="max-width: 20rem; margin: 10px;">
+                <div class="card-header">MySQL Database Server</div>
+                <div class="card-body">
+                    <h4 class="card-title">Database Server</h4>
+                    <p class="card-text">The Database Server will be deployed with a MySQL database implemented, further customization will be required by the user.</p>
+                    
+
+                    <input onclick="toggleVisibilityDB()" value="Deploy" type="button" title="Deploy" id="DBExpand" class="btn btn-outline-success align-bottom" href="#" style="position: relative; bottom: 0;" />
+                    <div id="DBForm" class="col form-group" style="display: none">
+                        @using (Html.BeginForm("DatabaseVM", "Member", FormMethod.Post, new { }))
+                        {
+                            <div class="input-group input-group">
+                                <p>Enter Name:        @Html.TextBoxFor(x => x.Name)</p>
+                                
+                                @*<p class="form-control">Select OS:    @Html.DropDownListFor(x => x.OperatingSystem,
+                    new SelectList(Enum.GetValues(typeof(OS))),"Select Operating System")</p>*@
+
+                                <input type="submit" class="btn btn-primary" value="Submit VM Request" formaction="DatabaseVM"/>
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<aside class="col" id="alerts" style="float:right; top: 99px; right: 0px; position: fixed; width:300px; ">
+    @*<div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Well done!</strong> You successfully read 1<a href="#" class="alert-link">this important alert message</a>.
+    </div>
+    <div class="alert alert-dismissible alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Well done!</strong> You successfully read 2<a href="#" class="alert-link">this important alert message</a>.
+    </div>*@
+   
+
+</aside>
+

@@ -14,6 +14,9 @@ namespace Deployer2._0.Models.PowerCLIHelper
         public object Cores { get; set; }
         public object Memory { get; set; }
         public object Host { get; set; }
+        public object DiskSize { get; set; }
+        public OS OperatingSystem { get; set; }
+
 
 
     }

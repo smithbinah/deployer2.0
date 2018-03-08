@@ -89,6 +89,7 @@ namespace Deployer2._0.Models.PowerCLIHelper
             }
                 return EVMList;
         }
+#region
         public void Refine(List<string> nameList, List<string> valueList)
         {
            
@@ -133,6 +134,79 @@ namespace Deployer2._0.Models.PowerCLIHelper
                 }
             }
             return itemFound;
+        }
+#endregion
+        public void DeployCustomVM(VMSuperModel environmentVM)
+        {
+            string link = System.Web.HttpContext.Current.Server.MapPath("~/DeployScripts/CreateVM.ps1");
+            string scriptDir = $"{link}";
+            string scriptText = System.IO.File.ReadAllText(scriptDir);
+            PSDataCollection<ErrorRecord> errorRecord;
+            string GuestID = "";
+            string ISOLocation = "";
+            switch (environmentVM.OperatingSystem)
+            {
+                case OS.Centos:
+                    GuestID = "centos7Guest";
+                     ISOLocation = @"[VSANDatastore] ISO Images\CentOS-7x86_64-Everything-1511 (1).iso";
+                    break;
+                case OS.Ubuntu:
+                    GuestID = "ubuntu64Guest";
+                    ISOLocation = @"[VSANDatastore] ISO Images\ubuntu-16.04.3-server-amd64.iso";
+
+                    break;
+                case OS.kali:
+                    GuestID = "debian10Guest";
+                    ISOLocation = @"[VSANDatastore] ISO Images\kali-linux-2016.1-amd64.iso" ;
+            break;
+                case OS.archlinux:
+                    GuestID = "otherLinuxGuest";
+                    ISOLocation = @"[VSANDatastore] ISO Images\archlinux-2018.03.01-x86_64.iso";
+                    break;
+                case OS.Fedora:
+                    GuestID = "fedoraGuest";
+                    ISOLocation = @"[VSANDatastore] ISO Images\Fedora-Workstation-Live-x86_64-25-1.3.iso";
+                    break;
+                default:
+                    break;
+            }
+            using (PowerShell powerShellIstance = PowerShell.Create())
+            {
+
+                powerShellIstance.AddScript(scriptText);
+                powerShellIstance.AddParameter("VMName", environmentVM.Name.ToString());
+                powerShellIstance.AddParameter("DiskSize", environmentVM.DiskSize.ToString());
+                powerShellIstance.AddParameter("Memory", environmentVM.Memory.ToString());
+                powerShellIstance.AddParameter("CPUNum", environmentVM.CPUNum.ToString());
+                powerShellIstance.AddParameter("GuestId", GuestID);
+                powerShellIstance.AddParameter("ISOLocation", ISOLocation);
+                powerShellIstance.Invoke();
+                //var results = powerShellIstance.Invoke();
+                errorRecord = powerShellIstance.Streams.Error;
+
+            }
+
+        }
+        public void DeployDatabaseVM(VMSuperModel preset)
+        {
+            string link = System.Web.HttpContext.Current.Server.MapPath("~/DeployScripts/CloneDatabaseVM.ps1");
+            string scriptDir = $"{link}";
+            string scriptText = System.IO.File.ReadAllText(scriptDir);
+            PSDataCollection<ErrorRecord> errorRecord;
+            using (PowerShell powerShellIstance = PowerShell.Create())
+            {
+
+                powerShellIstance.AddScript(scriptText);
+                powerShellIstance.AddParameter("VMName", preset.Name.ToString());
+                //powerShellIstance.Streams.Progress.DataAdded += (sender, eventargs) => {
+                //    PSDataCollection<ProgressRecord> progressRecords = (PSDataCollection<ProgressRecord>)sender;
+                //    VMInformation.DeploymentProgress = progressRecords[eventargs.Index].PercentComplete;
+                //};
+                powerShellIstance.Invoke();
+                //var results = powerShellIstance.Invoke();
+                errorRecord = powerShellIstance.Streams.Error;
+
+            }
         }
     }
 }

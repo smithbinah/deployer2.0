@@ -12,6 +12,8 @@ using System.Management.Automation;
 using System.Collections.ObjectModel;
 using System.IO;
 using Deployer2._0.Models.PowerCLIHelper;
+using System.Web.UI;
+using System.Dynamic;
 
 namespace Deployer2._0.Controllers
 {
@@ -97,15 +99,65 @@ namespace Deployer2._0.Controllers
             ViewBag.Progress = progress;
             return View();
         }
-        
-        public async Task<ViewResult> VMs()
+        [HttpGet]
+        public ViewResult VMs()
         {
             ViewBag.Title = "VMs";
+            VMSuperModel environmentVM = new VMSuperModel();
+            //dynamic dynamicModel = new ExpandoObject();
+            //dynamicModel.DeployableEnvironmentVM = GetDeployableEnvironmentVM();
+
+            return View("VMs", environmentVM);
+        }
+        [HttpPost]
+        public ViewResult VMs(VMSuperModel environmentVM)
+        {
 
             
-            return View();
+            VMWare vmwarePs = new VMWare();
+            vmwarePs.DeployCustomVM(environmentVM);
+            //ViewBag.test = "The ting goes Boom, skidi dat";
+            return View(environmentVM);
         }
-        
+        [HttpPost]
+        public ViewResult DatabaseVM(VMSuperModel environmentVM)
+        {
+            VMWare vmwarePs = new VMWare();
+            environmentVM.CPUNum = "";
+            environmentVM.DiskSize = "";
+            environmentVM.Memory = "";
+            environmentVM.OperatingSystem = OS.Centos;
+            vmwarePs.DeployDatabaseVM(environmentVM);
+
+            return View("VMs", environmentVM);
+        }
+        [HttpPost]
+        public ViewResult CustomVM(VMSuperModel environmentVM)
+        {
+            VMWare vmwarePs = new VMWare();
+            vmwarePs.DeployCustomVM(environmentVM);
+
+            return View("VMs", environmentVM);
+        }
+        [HttpPost]
+        public ViewResult ftp(VMSuperModel environmentVM)
+        {
+
+            VMWare vmwarePs = new VMWare();
+            vmwarePs.DeployCustomVM(environmentVM);
+
+            return View("VMs", environmentVM);
+        }
+        [HttpPost]
+        public ViewResult web(VMSuperModel environmentVM)
+        {
+            VMWare vmwarePs = new VMWare();
+            vmwarePs.DeployCustomVM(environmentVM);
+
+            return View("VMs");
+        }
+
+
         [HttpGet]
         public ViewResult VMForm()
         {

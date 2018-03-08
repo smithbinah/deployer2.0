@@ -277,9 +277,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ExtensionMethods.cs" />
+    <Compile Include="Models\OS.cs" />
+    <Compile Include="Models\PowerCLIHelper\DeployableEnvironmentVM.cs" />
     <Compile Include="Models\PowerCLIHelper\EnvironmentVM.cs" />
+    <Compile Include="Models\PowerCLIHelper\PresetVM.cs" />
     <Compile Include="Models\PowerCLIHelper\VMWare.cs" />
     <Compile Include="Models\VMModel.cs" />
+    <Compile Include="Models\VMSuperModel.cs" />
     <Compile Include="Resources\APIResources\Fields.cs" />
     <Compile Include="Resources\APIResources\Issue.cs" />
     <Compile Include="Resources\APIResources\JiraAPIController.cs" />
@@ -390,6 +394,7 @@
     <Content Include="ExhaustiveVm\CreateExhaustiveVm.vshost.exe.manifest" />
     <Content Include="DeployScripts\DeployContainer.ps1" />
     <Content Include="DeployScripts\GetVMInfo.ps1" />
+    <Content Include="DeployScripts\CreateVM.ps1" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Resources\e2eaf188.0.crt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
