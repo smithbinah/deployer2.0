@@ -395,6 +395,9 @@
     <Content Include="DeployScripts\DeployContainer.ps1" />
     <Content Include="DeployScripts\GetVMInfo.ps1" />
     <Content Include="DeployScripts\CreateVM.ps1" />
+    <Content Include="DeployScripts\CloneDatabaseVM.ps1" />
+    <Content Include="DeployScripts\CloneVM.ps1" />
+    <Content Include="DeployScripts\DeploCustomizationVM.ps1" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Resources\e2eaf188.0.crt" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

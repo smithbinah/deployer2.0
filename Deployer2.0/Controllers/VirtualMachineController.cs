@@ -25,7 +25,7 @@ namespace Deployer2._0.Controllers
         // GET: VirtualMachine
         public ActionResult Index()
         {
-           
+
             return View();
         }
         [HttpGet]
@@ -51,23 +51,23 @@ namespace Deployer2._0.Controllers
 
             return View(new VirtualMachineListModel());
         }
-        public void IsOverDue(List<Issue> issues, List<Issue> overDueIssues )
+        public void IsOverDue(List<Issue> issues, List<Issue> overDueIssues)
         {
-            
+
             foreach (Issue issue in issues)
             {
                 string dueDate = issue.fields.customfield_10007;
                 DateTime parsedDueDate;
-                if(DateTime.TryParse(dueDate, out parsedDueDate))
+                if (DateTime.TryParse(dueDate, out parsedDueDate))
                 {
                     if (DateTime.Compare(parsedDueDate, DateTime.Now) < 0)
                     {
                         overDueIssues.Add(issue);
                     }
                 }
-                
+
             }
-            
+
         }
         public ViewResult Analytics()
         {
@@ -78,10 +78,10 @@ namespace Deployer2._0.Controllers
             ViewBag.Content = Allissues;
             ViewBag.TotalIssues = Allissues.Count();
             ViewBag.OverDue = overDueIssues;
-            
+
             int IssueIsDoneCount = 0;
             int idNumber = 0;
-            
+
             foreach (Issue issue in Allissues)
             {
                 Int32.TryParse(issue.fields.status.id, out idNumber);
@@ -89,10 +89,10 @@ namespace Deployer2._0.Controllers
                 {
                     IssueIsDoneCount++;
                 }
-                
+
             }
-                IsOverDue(Allissues,overDueIssues);
-            
+            IsOverDue(Allissues, overDueIssues);
+
 
 
             string progress = "Project Progress: " + (Allissues.Count() / IssueIsDoneCount) + "%    Issues Completed: ";
@@ -113,7 +113,7 @@ namespace Deployer2._0.Controllers
         public ViewResult VMs(VMSuperModel environmentVM)
         {
 
-            
+
             VMWare vmwarePs = new VMWare();
             vmwarePs.DeployCustomVM(environmentVM);
             //ViewBag.test = "The ting goes Boom, skidi dat";
@@ -144,7 +144,11 @@ namespace Deployer2._0.Controllers
         {
 
             VMWare vmwarePs = new VMWare();
-            vmwarePs.DeployCustomVM(environmentVM);
+            environmentVM.CPUNum = "";
+            environmentVM.DiskSize = "";
+            environmentVM.Memory = "";
+            environmentVM.OperatingSystem = OS.Centos;
+            vmwarePs.DeployDatabaseVM(environmentVM);
 
             return View("VMs", environmentVM);
         }
@@ -152,8 +156,11 @@ namespace Deployer2._0.Controllers
         public ViewResult web(VMSuperModel environmentVM)
         {
             VMWare vmwarePs = new VMWare();
-            vmwarePs.DeployCustomVM(environmentVM);
-
+            environmentVM.CPUNum = "";
+            environmentVM.DiskSize = "";
+            environmentVM.Memory = "";
+            environmentVM.OperatingSystem = OS.Centos;
+            vmwarePs.DeployDatabaseVM(environmentVM);
             return View("VMs");
         }
 
@@ -185,7 +192,7 @@ namespace Deployer2._0.Controllers
 
             string link = System.Web.HttpContext.Current.Server.MapPath("~/ExhaustiveVm/CreateExhaustiveVm.exe");
             //link = "\" " + link + " \"";
-            
+
             //Process.Start("cmd.exe", $" /k \"{link}\"  --server 10.0.88.11 --username administrator@vsphere.local --password Nu140859246! --skip-server-verification --cleardata --datacenter Datacenter --cluster VSANCluster --vmfolder APIVMs --datastore vsanDatastore --standardportgroup APINetwork --distributedportgroup API(DPG) --isodatastorepath [vsanDatastore] ISOImages --vmname " + virtualMachineModel.Name );
             Process proc = new Process
             {
@@ -204,7 +211,7 @@ namespace Deployer2._0.Controllers
             while (!proc.StandardOutput.EndOfStream)
             {
                 string line = proc.StandardOutput.ReadLine();
-                
+
                 output = line;
             }
             Match match = regex.Match(output);
@@ -212,19 +219,19 @@ namespace Deployer2._0.Controllers
             if (match.Success)
             {
                 matchedGroup = match.Groups[0].Value;
-                
+
             }
             ViewBag.escapedLink = matchedGroup;
 
             return View("Thanks", virtualMachineModel);
         }
-        
+
         public ViewResult Containers()
         {
             ViewBag.Title = "Containers";
             return View();
         }
-       
+
         [HttpGet]
         public ViewResult ContainerForm()
         {
@@ -237,7 +244,7 @@ namespace Deployer2._0.Controllers
             string link = System.Web.HttpContext.Current.Server.MapPath("~/DeployScripts/DeployContainer.ps1");
             string scriptDir = $"{link}";
             string scriptText = System.IO.File.ReadAllText(scriptDir);
-            PSDataCollection <ErrorRecord> errorRecord;
+            PSDataCollection<ErrorRecord> errorRecord;
             using (PowerShell powerShellIstance = PowerShell.Create())
             {
 
@@ -247,10 +254,10 @@ namespace Deployer2._0.Controllers
                 powerShellIstance.Invoke();
                 //var results = powerShellIstance.Invoke();
                 errorRecord = powerShellIstance.Streams.Error;
-                
+
             }
             ViewBag.errors = errorRecord;
-            return View("ThanksContainer",containerModel);
+            return View("ThanksContainer", containerModel);
         }
         public ViewResult Environment()
         {
@@ -258,15 +265,15 @@ namespace Deployer2._0.Controllers
             VirtualMachineAPIController virtualMachineAPIController = new VirtualMachineAPIController();
             ViewBag.test = virtualMachineAPIController.Login("blah");
             VMWare vmScript = new VMWare();
-            
-            
+
+
             ViewBag.vmlist = vmScript.ConvertToObjectList(vmScript.Login());
             //VMRoot vmlist = virtualMachineAPIController.ListVMs();
             //ViewBag.vmlist = vmlist;
             ViewBag.Title = "Environment";
             return View();
         }
-        
-        
+
+
     }
 }

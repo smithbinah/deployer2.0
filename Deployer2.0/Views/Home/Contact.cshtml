@@ -49,7 +49,7 @@
     <div class="panel-heading ">
         <h3 class="panel-title">
             <a class="btn btn-outline-info" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                How do i manage my FTP Preset VM?
+                How do i manage my Preset VM?
             </a>
         </h3>
     </div>
@@ -59,11 +59,35 @@
             <ul>
                 <li>Sudo systemctl start sftpd</li>
             </ul>
-            <p>Enable to restart the FTP Enter into the command prompt</p>
+           
+            <p>Enable to restart the FTP Enter into the command prompt:</p>
             <ul>
                 <li>Sudo systemctl restart sftpd</li>
             </ul>
-                
+            <hr />
+
+            <p>Enable to start the Database Enter into the command prompt:</p>
+           
+            <ul>
+
+                <li>Sudo systemctl start mariadb</li>
+            </ul>
+            <p>Enable to restart the Database Enter into the command prompt:</p>
+            <ul>
+                <li>Sudo systemctl restart mariadb</li>
+            </ul>
+            <hr />
+
+            <p>Enable to start the Web server Enter into the command prompt:</p>
+            <ul>
+                <li>Sudo systemctl start httpd</li>
+            </ul>
+            <p>Enable to restart the Web server Enter into the command prompt:</p>
+            <ul>
+                <li>Sudo systemctl restart httpd</li>
+            </ul>
+            
+
         </div>
     </div>
 </div>

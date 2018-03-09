@@ -148,24 +148,24 @@ namespace Deployer2._0.Models.PowerCLIHelper
             {
                 case OS.Centos:
                     GuestID = "centos7Guest";
-                     ISOLocation = @"[VSANDatastore] ISO Images\CentOS-7x86_64-Everything-1511 (1).iso";
+                     ISOLocation = @"[vsanDatastore] ISO Images/CentOS-7x86_64-Everything-1511 (1).iso";
                     break;
                 case OS.Ubuntu:
                     GuestID = "ubuntu64Guest";
-                    ISOLocation = @"[VSANDatastore] ISO Images\ubuntu-16.04.3-server-amd64.iso";
+                    ISOLocation = @"[vsanDatastore] ISO Images/ubuntu-16.04.3-server-amd64.iso";
 
                     break;
                 case OS.kali:
                     GuestID = "debian10Guest";
-                    ISOLocation = @"[VSANDatastore] ISO Images\kali-linux-2016.1-amd64.iso" ;
+                    ISOLocation = @"[vsanDatastore] ISO Images/kali-linux-2016.1-amd64.iso";
             break;
                 case OS.archlinux:
                     GuestID = "otherLinuxGuest";
-                    ISOLocation = @"[VSANDatastore] ISO Images\archlinux-2018.03.01-x86_64.iso";
+                    ISOLocation = @"[vsanDatastore] ISO Images/archlinux-2018.03.01-x86_64.iso";
                     break;
                 case OS.Fedora:
                     GuestID = "fedoraGuest";
-                    ISOLocation = @"[VSANDatastore] ISO Images\Fedora-Workstation-Live-x86_64-25-1.3.iso";
+                    ISOLocation = @"[vsanDatastore] ISO Images/Fedora-Workstation-Live-x86_64-25-1.3.iso";
                     break;
                 default:
                     break;
